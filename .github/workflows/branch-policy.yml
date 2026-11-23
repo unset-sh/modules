@@ -1,0 +1,13 @@
+name: branch-policy
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened, edited, ready_for_review]
+
+permissions: {}
+
+jobs:
+  policy:
+    # Work targets staging; only staging promotes to main (org-0010). The called job needs no permission.
+    uses: unset-sh/tooling/.github/workflows/ci-branch-policy.yml@9239c7b752a92fc1eb3de3a0e86193fce7c4bda3
+    permissions: {}

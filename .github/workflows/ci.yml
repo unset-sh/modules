@@ -1,0 +1,33 @@
+name: ci
+
+# Runs on GitHub-hosted runners only. This repository is public and will take pull requests from forks, and a
+# fork's pull request brings its own copy of this file, so a self-hosted runner must never be offered to it.
+# Keep the trigger `pull_request` (read-only token, no secrets for forks); never `pull_request_target`.
+on:
+  pull_request:
+    branches: [staging, main]
+  push:
+    branches: [staging, main]
+
+permissions: {}
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  check:
+    name: Agent-kit copy matches its lock
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version: 26.12.0
+          package-manager-cache: false
+      - run: node .claude/agent-kit/sync.mjs --check
