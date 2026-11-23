@@ -12,7 +12,7 @@ follows describes the direction, and the parts marked as working assumptions are
 
 Set by the owner:
 
-- A member turns a module on or off. Turning one off stops it; it never deletes the member's own records.
+- A member turns a module on or off.
 - To begin with, every module lives in this one repository. Modules kept in other repositories may come later.
 - Every module is reviewed and accepted by unset before members can see it.
 - A module is a sandboxed web app. unset.sh gives it a screen inside its own view, and the module's code never
@@ -20,6 +20,7 @@ Set by the owner:
 
 Working assumptions, until the owner decides:
 
+- Turning a module off stops it and never deletes the member's own records.
 - A module never signs in. unset.sh acts for it, within the permissions the member approved when turning it on.
 - A module's own record types live under a domain its developer controls, never under `sh.unset.*`.
 - A visitor to a profile never runs module code. unset.sh draws what a module adds to a page.
@@ -54,11 +55,11 @@ and lands through a pull request into `staging`. `main` is what is released, and
 The one check today:
 
 ```sh
-node .claude/agent-kit/sync.mjs --check
+npm run check
 ```
 
-It confirms that the copy of [agent-kit](https://github.com/unset-sh/agent-kit) under `.claude/` matches its
-lock. CI runs it on every pull request and on `staging` and `main`, on GitHub-hosted runners.
+It needs no install. It runs `node .claude/agent-kit/sync.mjs --check`, which confirms that the copy of
+[agent-kit](https://github.com/unset-sh/agent-kit) under `.claude/` matches its lock. CI runs it on every pull request and on `staging` and `main`, on GitHub-hosted runners.
 
 ## Licence
 

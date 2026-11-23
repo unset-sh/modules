@@ -1,0 +1,8 @@
+{
+  "name": "@unset-sh/modules",
+  "private": true,
+  "license": "AGPL-3.0-only",
+  "scripts": {
+    "check": "node .claude/agent-kit/sync.mjs --check"
+  }
+}

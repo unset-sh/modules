@@ -35,10 +35,12 @@ repository uses or ships, or renames or archives it, open a pull request on `uns
   unset.sh, to be confirmed by a browser test. The README lists the working assumptions that are not decided.
   Building on one of them needs the owner's decision first, and the organisation decision record that carries it.
 - A module's code is untrusted. It never runs in unset.sh's own pages or servers, never receives a session,
-  token or cookie, and never writes under `sh.unset.*`. Do not weaken this to make a module work; stop and ask.
+  token or cookie, and never writes under `sh.unset.*`. The README lists the last two as working assumptions:
+  they hold, fail closed, until the owner decides otherwise. Do not weaken any of this to make a module work;
+  stop and ask.
 - This repository is public and will take pull requests from forks. Workflows run on GitHub-hosted runners
-  only, triggered by `pull_request`, never `pull_request_target`, and no workflow a fork's pull request can
-  reach holds a secret or a token that can write. A fork's pull request brings its own workflow file, so a
+  only, on `pull_request` (never `pull_request_target`) and on pushes to `staging` and `main`, and no workflow
+  a fork's pull request can reach holds a secret or a token that can write. A fork's pull request brings its own workflow file, so a
   condition in the file is not a fence.
 - Do not merge a pull request from outside the organisation until the owner opens contributions.
 - A change to what a module is allowed to do, or to the contract once it is published, is expensive to reverse:
@@ -46,8 +48,9 @@ repository uses or ships, or renames or archives it, open a pull request on `uns
 
 ## Commands
 
-No package manifest exists yet; add one with the first code, with one `check` command that runs every check.
+`npm run check` runs every check; CI runs it too. Keep it the one command as checks are added.
 
 ```sh
+npm run check
 node .claude/agent-kit/sync.mjs --check
 ```

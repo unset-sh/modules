@@ -8,7 +8,7 @@
 
 ## Checklist
 
-- [ ] `node .claude/agent-kit/sync.mjs --check` passes
+- [ ] `npm run check` passes
 - [ ] The pull request targets `staging`
 - [ ] No workflow gained a self-hosted runner, `pull_request_target` or a secret
 - [ ] `README.md` and `CLAUDE.md` still describe what is in the repository
