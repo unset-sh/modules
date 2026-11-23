@@ -40,8 +40,8 @@ repository uses or ships, or renames or archives it, open a pull request on `uns
   stop and ask.
 - This repository is public and will take pull requests from forks. Workflows run on GitHub-hosted runners
   only, on `pull_request` (never `pull_request_target`) and on pushes to `staging` and `main`, and no workflow
-  a fork's pull request can reach holds a secret or a token that can write. A fork's pull request brings its own workflow file, so a
-  condition in the file is not a fence.
+  a fork's pull request can reach holds a secret or a token that can write. A fork's pull request brings its
+  own workflow file, so a condition in the file is not a fence.
 - Do not merge a pull request from outside the organisation until the owner opens contributions.
 - A change to what a module is allowed to do, or to the contract once it is published, is expensive to reverse:
   stop and ask.

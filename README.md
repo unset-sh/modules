@@ -59,7 +59,8 @@ npm run check
 ```
 
 It needs no install. It runs `node .claude/agent-kit/sync.mjs --check`, which confirms that the copy of
-[agent-kit](https://github.com/unset-sh/agent-kit) under `.claude/` matches its lock. CI runs it on every pull request and on `staging` and `main`, on GitHub-hosted runners.
+[agent-kit](https://github.com/unset-sh/agent-kit) under `.claude/` matches its lock. CI runs it on every pull
+request and on `staging` and `main`, on GitHub-hosted runners.
 
 ## Licence
 
